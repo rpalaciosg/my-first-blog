@@ -10,25 +10,24 @@
     </head>
     <body>
         <div class="container">
-            <div>
-                <h1><a href="/">rapg Blog! django</a></h1>
+            <div class="page-header">
+                <h1><a href="/">Blog de rapg</a></h1>
             </div>
-            
-            <div class="row">
+                        
+            {% for post in posts %} 
+            <div class="row">            
                 <article>
-                    <p>published: 14.06.2014, 12:14</p>
-                    <h2><a heref="">Mi primer post</a></h2>
-                    <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                    <p>publicado:{{ post.published_date }}</p>
+                    <h2><a href="">{{ post.title }}</a></h2>
+                    <p>{{ post.text|linebreaksbr}}</p>
                 </article>
             </div>
+            {% endfor %}
+        
             
-            <div class="row">
-                <article>
-                    <p>published: 14.06.2014, 12:14</p>
-                    <h2><a heref="">Mi segundo post</a></h2>
-                    <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                </article>
-            </div>
+            {% for post in posts %} 
+                {{ post }} 
+            {% endfor %}
         </div>
         
     </body>
